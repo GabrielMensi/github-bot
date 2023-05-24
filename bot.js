@@ -3,7 +3,7 @@ const path = require("path");
 const { Octokit } = require("@octokit/rest");
 
 // Configura tu token de acceso personal de GitHub
-const octokit = new Octokit({ auth: "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" });
+const octokit = new Octokit({ auth: "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" });
 
 // Configura los detalles de tu repositorio
 const owner = "GabrielMensi";
