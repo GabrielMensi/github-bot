@@ -3,7 +3,7 @@ const path = require("path");
 const { Octokit } = require("@octokit/rest");
 
 // Configura tu token de acceso personal de GitHub
-const octokit = new Octokit({ auth: "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" });
+const octokit = new Octokit({ auth: "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" });
 
 // Configura los detalles de tu repositorio
 const owner = "GabrielMensi";
@@ -37,12 +37,12 @@ async function commitAndPush() {
     console.log("Commit realizado exitosamente.");
 
     // Realiza el push a la rama principal
-    await octokit.git.createRef({
-      owner,
-      repo,
-      ref: "refs/heads/main",
-      sha: commits.length > 0 ? commits[commits.length - 1].sha : "", // SHA del último commit
-    });
+		await octokit.git.updateRef({
+			owner,
+			repo,
+			ref: "heads/main",
+			sha: commits.length > 0 ? commits[commits.length - 1] : "", // SHA del último commit
+		});
 
     console.log("Push realizado exitosamente.");
   } catch (error) {
